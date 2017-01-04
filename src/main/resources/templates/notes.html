@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Notes</title>
+</head>
+<body>
+	<h1>Hello <span th:text="${user}">name</span></h1>
+
+	If you want to change your password: click <a href="/change-pw">here</a>.
+
+	<h2>Your notes are:</h2>
+	<ul>
+		<li th:each="entry : ${notes}">
+			<h3 th:utext="${entry.title}">title</h3>
+			<form th:action="@{/note/{id}(id=${entry.id})}" th:method="POST">
+				<textarea name="text" th:text="${entry.text}"></textarea>
+				<input type="submit" value="Save Changes"/>
+			</form>
+			<form th:action="@{/note/{id}(id=${entry.id})}" th:method="DELETE"><input type="submit" value="Remove"/></form>
+			<hr />
+		</li>
+	</ul>
+	<h3>Add new note:</h3>
+	<form th:action="@{/note}" th:method="POST">
+		Title: <input type="text" name="title" /><br />
+		<textarea name="text"></textarea>
+		<input type="submit" value="Add"/>
+	</form>
+</body>
+</html>
