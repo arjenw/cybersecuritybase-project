@@ -1,5 +1,7 @@
 # Welcome to my fancy AnyNote app
 
+> :warning: This repository is here for the sole purpose of an exercise in the Cybersecurity course https://cybersecuritybase.github.io/. It contains flaws intentionally and is not in any way representative for code quality or other concerns. :warning:
+
 Take notes, update and delete them.
 
 ## Known users:
